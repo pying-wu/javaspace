@@ -24,6 +24,8 @@ public class TestArray {
 		System.out.println(ages[9]);
 		System.out.println("finish");
 		ages = null;
+		
+		
 	}
 
 }
