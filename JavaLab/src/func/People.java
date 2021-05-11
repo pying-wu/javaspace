@@ -11,10 +11,16 @@ public class People {
     //下方為物件屬性跟方法,需要new才能使用	
 	double height;
 	double weight;
+	double s1;
+	double s2;
+	double s3;
+	double s4;
+	
 	public double getBMI() {
-		double BMI = weight / ( height * height );
+        //double BMI = weight / ( height * height );
+		double BMI = People.BMI(height, weight);
 		return BMI;
 	}
-	
+	//下方物件方法可以呼叫上方靜態方法;然上方無法直接呼叫下方的
 	
 }

@@ -17,9 +17,11 @@ public class TestArray {
 			System.out.println(a);
 		}
 		
+		System.out.println("-----------");
 		
 		
 		System.out.println(ages[1]);
+		System.out.println("-----------");
 		System.out.println("length="+ages.length);//
 		System.out.println(ages[9]);
 		System.out.println("finish");
