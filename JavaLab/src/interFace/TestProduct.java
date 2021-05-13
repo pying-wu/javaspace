@@ -28,17 +28,16 @@ public class TestProduct {
 		
 		//先取得日曆,再取得日期  月份起始值為0(一月)
 		//GregorianCalendar calendar = new GregorianCalendar(2021, 4, 13);
-		GregorianCalendar calendar = new GregorianCalendar(2021, Calendar.MAY, 13);		
-		Date date = calendar.getTime();
+		//GregorianCalendar calendar = new GregorianCalendar(2021, Calendar.MAY, 13);		
+		Date date = Product.getDate(2021, 5, 14);
 		Food food = new Food("肉鬆",200, date  );
 		System.out.println(food.desc());
 		
-		GregorianCalendar calendar1 = new GregorianCalendar(2021, Calendar.MAY, 13);		
-		Date date1 = calendar.getTime();
-		SimCard sim = new SimCard("德國天鵝遊", 600, date);
+		
+		SimCard sim = new SimCard("德國天鵝遊", 600, Product.getDate(2021, 4, 30));
 		
 //		Product[] items = new Product[] {nb, food};
-		Product[] items = {nb, food};
+		Product[] items = {nb, food, sim};
 		buy(items);
 //		buy(nb);
 //		buy(food);
@@ -49,6 +48,14 @@ public class TestProduct {
 		int sum = 0 ;
 		for( Product eachItem : ps) {
 			System.out.println("買入:"+eachItem.desc());
+			if (eachItem instanceof Expireable) {
+				Expireable exp = (Expireable)eachItem;
+			    Date now = new Date();//取得電腦現在時間
+			    if ( exp.最後期限().before(now)) {
+					System.out.println("已過期");
+					continue;
+				}
+			}
             sum = sum + eachItem.getPrice(); 			
 		}
 		System.out.println("總金額:"+sum);

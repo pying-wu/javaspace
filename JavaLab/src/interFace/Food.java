@@ -1,5 +1,6 @@
 package interFace;
 
+import java.io.Serializable;
 import java.util.Date;
 
 public class Food extends Product implements Expireable {
